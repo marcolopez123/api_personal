@@ -97,7 +97,7 @@ class UserController extends Controller
         $user->empresa_id = $request->empresa_id;
         $user->rol_id = $request->rol_id;
         $user->trabajador_id = $request->trabajador_id;
-        $user->sucursal_id = $request->sucursal_id;
+        $user->sucursal_id = $request->sucursal_id; 
         if(isset($request->password)){
             if(!empty($request->password)){
                 $user->password = Hash::make($request->password);
