@@ -60,6 +60,8 @@ Route::group(['prefix'=>'api'],function(){
     //Remuneraciones
     Route::apiResource('/rTipoInasistencias', 'RTipoInasistenciaController');
 
+    Route::apiResource('/rCAsistencias', 'RCAsistenciaController');
+
     //
     Route::apiResource('/tPPrevisiones', 'TPPrevisioneController');
     //Procesos Remuneraciones

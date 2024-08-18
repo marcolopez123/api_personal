@@ -30,8 +30,7 @@ class TPeriodoTrabajadoreController extends Controller
     {
         $filtro = $request->filtro;
         $filtro2 = $request->filtro2;
-        $tPeriodoTrabajador= TPeriodoTrabajadore::with(['TPeriodo','Trabajador','TSalude','TPPrevisione','Empresa','Sucursal','RContrato'])->leftjoin('r_contratos', 't_periodo_trabajadores.r_contrato_id', '=', 'r_contratos.id')
-        ->leftjoin('r_doc_contratos', 'r_contratos.r_doc_contrato_id', '=', 'r_doc_contratos.id')
+        $tPeriodoTrabajador= TPeriodoTrabajadore::with(['TPeriodo','Trabajador','TSalude','TPPrevisione','Empresa','Sucursal','RContrato'])
         
         ->where('t_periodo_trabajadores.estado',1)
         ->where('t_periodo_trabajadores.trabajador_id',$filtro)
@@ -80,7 +79,9 @@ class TPeriodoTrabajadoreController extends Controller
      */
     public function update(Request $request, TPeriodoTrabajadore $tPeriodoTrabajadore)
     {
-        //
+        $tPeriodoTrabajadore->t_p_previsione_id = $request->t_p_previsione_id;
+        $tPeriodoTrabajadore->save();
+        return $tPeriodoTrabajadore;
     }
 
     /**

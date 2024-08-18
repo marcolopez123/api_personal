@@ -36,6 +36,9 @@ Route::get('/sucursal/empresa', 'SucursalController@Empresa');
 Route::get('/empresa/filtro', 'EmpresaController@filtro');
 Route::get('/area/filtro', 'TipoArchivoController@area');
 
+Route::get('/rCAsistencias/filtro', 'RCAsistenciaController@Filtro');
+Route::get('/rCAsistencias/filtro2', 'RCAsistenciaController@Filtro2');
+Route::get('/rCAsistencias/filtroSalida', 'RCAsistenciaController@filtroSalida');
 //Trabajadores
 Route::get('/tPeriodoTrabajadore/filtro', 'TPeriodoTrabajadoreController@Filtro');
 Route::get('/rContrato/filtro', 'RContratoController@Filtro');
