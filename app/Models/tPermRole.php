@@ -12,4 +12,8 @@ class tPermRole extends Model
     public function Role(){
         return $this->belongsTo(Role::class);
     }
+    public function Menu(){
+        return $this->belongsTo(Menu::class);
+    }
+
 }

@@ -14,7 +14,7 @@ class TSaludeController extends Controller
      */
     public function index()
     {
-        //
+        return tSalude::orderBy('nombre')->where('estado',1)->get();
     }
 
     /**

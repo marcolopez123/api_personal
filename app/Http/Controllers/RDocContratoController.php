@@ -14,7 +14,7 @@ class RDocContratoController extends Controller
      */
     public function index()
     {
-        //
+        return RDocContrato::where('estado',1)->orderBy('nombre')->get();
     }
 
     /**

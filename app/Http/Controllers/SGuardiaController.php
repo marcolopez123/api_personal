@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TPrevisione;
+use App\Models\SGuardia;
+use App\Models\Empresa;
+use App\Models\Sucursal;
+use App\Models\Trabajador;
 use Illuminate\Http\Request;
 
-class TPrevisioneController extends Controller
+class SGuardiaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +17,7 @@ class TPrevisioneController extends Controller
      */
     public function index()
     {
-        return TPrevisione::orderBy('nombre')->where('estado',1)->get();
+        return SGuardia::with(['Empresa','Sucursal','Trabajador'])->where('estado',1)->get();
     }
 
     /**
@@ -31,10 +34,10 @@ class TPrevisioneController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\TPrevisione  $tPrevisione
+     * @param  \App\Models\SGuardia  $sGuardia
      * @return \Illuminate\Http\Response
      */
-    public function show(TPrevisione $tPrevisione)
+    public function show(SGuardia $sGuardia)
     {
         //
     }
@@ -43,10 +46,10 @@ class TPrevisioneController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TPrevisione  $tPrevisione
+     * @param  \App\Models\SGuardia  $sGuardia
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TPrevisione $tPrevisione)
+    public function update(Request $request, SGuardia $sGuardia)
     {
         //
     }
@@ -54,10 +57,10 @@ class TPrevisioneController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\TPrevisione  $tPrevisione
+     * @param  \App\Models\SGuardia  $sGuardia
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TPrevisione $tPrevisione)
+    public function destroy(SGuardia $sGuardia)
     {
         //
     }

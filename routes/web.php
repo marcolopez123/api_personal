@@ -57,10 +57,19 @@ Route::group(['prefix'=>'api'],function(){
     Route::apiResource('/tNacionalidades', 'TNacionalidadeController');
     Route::apiResource('/tEstadoCiviles', 'TEstadoCivileController');
 
+    Route::apiResource('/sControles', 'SControleController');
+    Route::apiResource('/sCentros', 'SCentroController');
+    Route::apiResource('/tPermRoles', 'TPermRoleController');
+
     //Remuneraciones
     Route::apiResource('/rTipoInasistencias', 'RTipoInasistenciaController');
 
     Route::apiResource('/rCAsistencias', 'RCAsistenciaController');
+
+    Route::apiResource('/menus', 'MenuController');
+
+    Route::apiResource('/rdoccontratos', 'RDocContratoController');
+    Route::apiResource('/rtipocontratos', 'RTipoContratoController');
 
     //
     Route::apiResource('/tPPrevisiones', 'TPPrevisioneController');
@@ -72,11 +81,12 @@ Route::group(['prefix'=>'api'],function(){
     Route::apiResource('/tipoArchivos', 'TipoArchivoController');
     Route::apiResource('/anos', 'AnoController');
     Route::apiResource('/meses', 'MeseController');
-    Route::apiResource('/tipoArchivos', 'TipoArchivoController');
 
     //Empresas
     Route::apiResource('/tRepresentantes', 'TRepresentanteController');
     Route::apiResource('/tSocios', 'TSocioController');
+
+    Route::apiResource('/templates', 'TemplateController');
 
     //Cargas Automaticas
     Route::apiResource('/tImpAutomaticos', 'TImpAutomaticoController');
@@ -100,6 +110,8 @@ Route::group(['prefix'=>'api'],function(){
     Route::apiResource('/tPagoImpuestos', 'TTPagoImpuestoController');
     Route::apiResource('/tTareas', 'TTareaController');
 
+    Route::apiResource('/tPrevisiones', 'TPrevisioneController');
+    Route::apiResource('/tSaludes', 'TSaludeController');
     //Gestion del Contador
     Route::apiResource('/tPagoImpuestos', 'TPagoImpuestoController');
     Route::apiResource('/tGIngresos', 'TGIngresoController');

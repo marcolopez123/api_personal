@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TGHonorario;
 use App\Models\TTipoHonorario;
-use App\Models\Epresa;
+use App\Models\Empresa;
 use App\Models\TPeriodo;
 use Illuminate\Http\Request;
 

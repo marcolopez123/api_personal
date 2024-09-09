@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\tPermRole;
 use App\Models\Role;
+use App\Models\Menu;
 use Illuminate\Http\Request;
 
 class TPermRoleController extends Controller
@@ -20,8 +21,14 @@ class TPermRoleController extends Controller
     public function Filtro(Request $request)
     {
         $filtro = $request->filtro;
-        return  tPermRole::with(['Role'])->where('role_id',$filtro)->where('estado',1)->orderBy('nombre')->get();
     
+        return tPermRole::select('t_perm_roles.*')
+            ->join('menus', 't_perm_roles.menu_id', '=', 'menus.id') // Reemplaza 'menu_id' e 'id' con los nombres de columnas correctos
+            ->with(['Role', 'Menu'])
+            ->where('t_perm_roles.role_id', $filtro)
+            ->where('t_perm_roles.estado', 1)
+            ->orderBy('menus.nombre') // Ordenar por el nombre del menú
+            ->get();
     }
     /**
      * Store a newly created resource in storage.
@@ -31,7 +38,13 @@ class TPermRoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tPermRoles = new tPermRole();
+        $tPermRoles->role_id = $request->role_id;
+        $tPermRoles->menu_id = $request->menu_id;
+        $tPermRoles->activo = $request->activo;
+        $tPermRoles->validacion = $request->role_id . "-" . $request->menu_id ;
+        $tPermRoles->save();
+        return $tPermRoles;
     }
 
     /**
@@ -55,7 +68,10 @@ class TPermRoleController extends Controller
      */
     public function update(Request $request, tPermRole $tPermRole)
     {
-      
+
+        $tPermRole->activo = $request->activo;
+        $tPermRole->save();
+        return $tPermRole;
     }
 
     /**

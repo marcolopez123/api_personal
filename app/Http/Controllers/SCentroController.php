@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TPrevisione;
+use App\Models\SCentro;
 use Illuminate\Http\Request;
 
-class TPrevisioneController extends Controller
+class SCentroController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class TPrevisioneController extends Controller
      */
     public function index()
     {
-        return TPrevisione::orderBy('nombre')->where('estado',1)->get();
+        return SCentro::with(['Empresa','Sucursal'])->where('estado',1)->get();
     }
 
     /**
@@ -25,16 +25,21 @@ class TPrevisioneController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sCentro = new SCentro();
+        $sCentro->empresa_id = $request->empresa_id;
+        $sCentro->sucursal_id = $request->sucursal_id;
+        $sCentro->nombre = $request->nombre;
+        $sCentro->save();
+        return $sCentro;
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\TPrevisione  $tPrevisione
+     * @param  \App\Models\SCentro  $sCentro
      * @return \Illuminate\Http\Response
      */
-    public function show(TPrevisione $tPrevisione)
+    public function show(SCentro $sCentro)
     {
         //
     }
@@ -43,10 +48,10 @@ class TPrevisioneController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TPrevisione  $tPrevisione
+     * @param  \App\Models\SCentro  $sCentro
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TPrevisione $tPrevisione)
+    public function update(Request $request, SCentro $sCentro)
     {
         //
     }
@@ -54,10 +59,10 @@ class TPrevisioneController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\TPrevisione  $tPrevisione
+     * @param  \App\Models\SCentro  $sCentro
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TPrevisione $tPrevisione)
+    public function destroy(SCentro $sCentro)
     {
         //
     }

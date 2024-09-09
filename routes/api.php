@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Storage;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::post('/template', 'ArchivoDoctoController@Template');
+
 Route::get('/liquidaciones/{liquidacion}/liquidacion', 'LiquidacionController@descarga');
 Route::get('/liquidacionDocts/{liquidaciondocto}/liquidacion', 'LiquidacionDoctoController@descarga');
 Route::post('/liquidacionDoct/liquidacion/{liquidacion}', 'LiquidacionDoctoController@store');
@@ -36,6 +38,10 @@ Route::get('/sucursal/empresa', 'SucursalController@Empresa');
 Route::get('/empresa/filtro', 'EmpresaController@filtro');
 Route::get('/area/filtro', 'TipoArchivoController@area');
 
+Route::get('/templates/filtro', 'TemplateController@Filtro');
+Route::get('/templates/empresa', 'TemplateController@Empresa');
+Route::get('/templates/id', 'TemplateController@id');
+
 Route::get('/rCAsistencias/filtro', 'RCAsistenciaController@Filtro');
 Route::get('/rCAsistencias/filtro2', 'RCAsistenciaController@Filtro2');
 Route::get('/rCAsistencias/filtroSalida', 'RCAsistenciaController@filtroSalida');
@@ -47,6 +53,7 @@ Route::get('/rDetalleLibros/filtro', 'RDetalleLibroController@procesar');
 
 Route::get('/tPPrevisiones/filtro', 'TPPrevisioneController@Filtro');
 
+Route::get('/sControles/filtro', 'SControleController@Filtro');
 //Procesos
 Route::get('/rLibros/filtro', 'RLibroController@Filtro');
 Route::get('/rDetalleLibros/filtro', 'RDetalleLibroController@Filtro');
@@ -56,7 +63,7 @@ Route::get('/rDetalleLibros/liquidacion', 'RDetalleLibroController@liquidacion')
 
 //Gestion del Contador
 Route::get('/tPagoImpuesto/filtro', 'TPagoImpuestoController@Filtro');
-Route::get('/tPermRole/filtro', 'TPermRoleController@Filtro');
+Route::get('/tPermRoles/filtro', 'TPermRoleController@Filtro');
 Route::get('/tGHonorario/filtro', 'TGHonorarioController@Filtro');
 Route::get('/tGIngreso/filtro', 'TGIngresoController@Filtro');
 Route::get('/tGRemuneracione/filtro', 'TGRemuneracioneController@Filtro');

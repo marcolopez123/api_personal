@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TPrevisione;
+use App\Models\Menu;
 use Illuminate\Http\Request;
 
-class TPrevisioneController extends Controller
+class MenuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class TPrevisioneController extends Controller
      */
     public function index()
     {
-        return TPrevisione::orderBy('nombre')->where('estado',1)->get();
+        return Menu::where('estado',1)->orderBy('nombre')->get();
     }
 
     /**
@@ -31,10 +31,10 @@ class TPrevisioneController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\TPrevisione  $tPrevisione
+     * @param  \App\Models\Menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function show(TPrevisione $tPrevisione)
+    public function show(Menu $menu)
     {
         //
     }
@@ -43,10 +43,10 @@ class TPrevisioneController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TPrevisione  $tPrevisione
+     * @param  \App\Models\Menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TPrevisione $tPrevisione)
+    public function update(Request $request, Menu $menu)
     {
         //
     }
@@ -54,10 +54,10 @@ class TPrevisioneController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\TPrevisione  $tPrevisione
+     * @param  \App\Models\Menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TPrevisione $tPrevisione)
+    public function destroy(Menu $menu)
     {
         //
     }
